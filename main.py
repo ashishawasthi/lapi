@@ -51,7 +51,7 @@ def epics(requirements: list[Requirement]):
 
     project_dir = "rule-engine" # TODO find closest project to the given requirements
 
-    # Load the prompt parts from files at startup
+    # Load the prompt parts from files
     system2 = text_from_file(os.path.join("assets", "prompts", "2-system.txt"))
     requirement21 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "21-requirements-answers.json"))
     epics22 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "22-epics-questions.json"))
