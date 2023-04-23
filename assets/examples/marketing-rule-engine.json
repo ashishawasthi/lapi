@@ -2,75 +2,81 @@
     {
         "title": "Marketing rules for targeted messages",
         "description": "Create marketing rules based on AI model recommendations and customer data to deliver targeted messages via inbound and outbound channels. The rules should allow business users to filter customers based on product-propensities, demographics, behavior, recent usage of services, and transaction history. The rules should also comply with regulatory requirements and prevent spamming customers. The system should provide a user-friendly interface to create, edit, and delete rules.",
-        "dependencies": [
-            "List of events to be available in the system.",
-            "Examples of complex conditions to be supported in rules. e.g. timeout between start and end events, event sequence.",
-            "List of spamming prevention rules."
+        "user": "Business user",
+        "questions": [
+            "What are the regulatory requirements for marketing messages?",
+            "What data sources will be used for creating marketing rules?",
+            "What is the expected volume of marketing messages?"
         ]
     },
     {
         "title": "Arbitration between inbound and outbound channels",
         "description": "Create rules to arbitrate across all inbound and outbound channels. Inbound channels should include mobile apps, website and support calls. Outbound channels should include push-notes, email and SMS. The rules should allow business users to specify the priority of channels and the conditions under which a channel should be used. The system should integrate with Arbitration-Layer and provide options to setup routing to one or multiple channels of Arbitration-Layer. Rules should be able to use a mix of AI model recommended touch points/channels, product/offer information and customer data to determine the best channel to contact a customer.",
-        "dependencies": [
-            "List of all inbound and outbound channels to support.",
-            "Types and examples of criteria to be supported"
+        "user": "Business user",
+        "questions": [
+            "What are the inbound and outbound channels to be supported?",
+            "What criteria will be used to select the best channel for a customer?",
+            "What is the expected volume of inbound and outbound messages?"
         ]
     },
     {
         "title": "Train AI models and monitor model performance over time",
         "description": "Train AI models to provide product recommendations, product propensities and content personalization. The system should provide a way to make training data available to Analytical-Cluster or AWS SageMaker to train the models. The system should also provide a way to update the models with new data and retrain them periodically.",
-        "dependencies": [
-            "Training data in T3-Feature-Mart should include customer demographics, behavior, service usage logs including Adobe/Google Analytics and customer transaction history.",
-            "Training data should be accessible in Analytical-Cluster or AWS SageMaker for training the models.",
-            "List of Model monitoring metrics. Definition of each metric.",
-            "Threshold values for each model monitoring metric, to raise alerts."
+        "user": "Data Scientist",
+        "questions": [
+            "What data sources will be used for training the AI models?",
+            "What are the inputs and outputs of each AI model?",
+            "What are the evaluation metrics for AI models?"
         ]
     },
     {
         "title": "Integrate AI models into the rule engine system",
         "user": "System Developer",
         "description": "Integrate AI models into the rule engine system to predict product-propensity, maximizing relevance of products to customers and bank's revenue expectations. The AI models should predict the best way to contact a customer, determining the optimal channels, timing, and content. The system should provide REST APIs to access the real-time AI models in rule engine. The system should also provide batch scoring option on Job-Server or AWS EMR, where scores across all customers need to be calculated at the same time.",
-        "dependencies": [
-            "List of AI models. Inputs and outputs of each AI model",
-            "List of APIs. Inputs and outputs of each API",
-            "List of batch scoring jobs. Inputs and outputs of each job"
+        "questions": [
+            "What are the AI models to be integrated?",
+            "What are the inputs and outputs of each API?",
+            "What is the expected latency of the API calls?"
         ]
     },
     {
         "title": "Measure campaign effectiveness using control groups",
         "user": "Business user",
         "description": "Measure the effectiveness of campaigns using control groups. The system should provide a way to create control groups, assign them to campaigns and compare the results with the treatment groups. The system should generate reports with metrics such as conversion rate, revenue generated, and customer satisfaction.",
-        "dependencies": [
-            "List of metrics to be used for measuring campaign effectiveness.",
-            "Treatment group evaluation criteria for stratified sampling.",
-            "Types and examples of campaigns to be supported."
+        "questions": [
+            "What metrics will be used to measure campaign effectiveness?",
+            "What are the types of campaigns to be supported?",
+            "What is the expected volume of campaigns?"
         ]
     },
     {
         "title": "Handle high volumes and build fault-tolerant and resilient system",
         "user": "System Developer",
         "description": "Handle high volume and velocity of events and actions without compromising performance or reliability. The event handling should use scalable platforms like AWS Lambda and AWS SQS to process events asynchronously and scale up or down based on the load. The system should also use caching and load balancing for APIs to improve performance and reduce latency.",
-        "dependencies": [
-            "Maximum expected volume of events and actions.",
-            "Expected expect historical data to be loaded."
+        "questions": [
+            "What is the expected volume of events and actions?",
+            "What is the expected response time for the system?",
+            "What is the expected downtime for the system?"
         ]
     },
     {
         "title": "Secure and compliant system",
         "user": "Compliance Officer",
         "description": "Ensure that the system is secure and compliant with the bank's policies and regulations. The system should use CyberArk or AWS KMS to store keys to encrypt data at rest and in transit. The system should also use an APM like Splunk or AWS CloudTrail to monitor and audit system activity. The system should be regularly tested for vulnerabilities and compliance with the bank's policies and regulations.",
-        "dependencies": [
-            "List of compliance tests to be performed."
+        "questions": [
+            "What are the regulatory requirements for data encryption?",
+            "What are the compliance tests to be performed?",
+            "What is the expected frequency of compliance testing?"
         ]
     },
     {
         "title": "System monitoring dashboard",
         "user": "Site Reliability Engineer",
         "description": "Ensure that the system health is monitored and displayed on a live dashboard. There should be configurable thresholds for system metrics, to raise alarms and send notifications relevant SRE and development teams.",
-        "dependencies": [
-            "List of system metrics to be monitored.",
-            "List of alarms to be raised.",
-            "List of notifications to be sent."
+        "questions": [
+            "What are the system metrics to be monitored?",
+            "What are the alarms to be raised?",
+            "What are the notifications to be sent?"
         ]
     }
 ]
