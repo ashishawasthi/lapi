@@ -12,9 +12,9 @@ Set OPENAI_API_KEY in .env
 uvicorn main:app --reload
 ```
 
-## Test (TBD) 
+## Test
 ```bash
-pytest
+python -m unittest .\tests\test_utils.py
 ```
 
 ## API
