@@ -64,7 +64,8 @@ def epics(requirements: list[Requirement]):
     ]
     print("\n\nCalling OpenAI ChatCompletion API with messages: {messages}".format(messages=messages))
     response = chat(messages)
-    print("\n\nResponse:" + response)
+    print("\n\nResponse: {response}".format(response=response))
+
     try:
         epics_json = json.loads(response.content)
         print("\n\n{epics_length} epics received from OpenAI ChatCompletion API".format(epics_length=len(epics_json)))
