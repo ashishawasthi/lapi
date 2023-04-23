@@ -20,5 +20,5 @@ pytest
 ## API
 ### POST /epics/
 ```bash
-curl -X POST "http://localhost:8000/epics/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"title\":\"my title\",\"description\":\"my test description\"}"
+curl -X POST "http://localhost:8000/epics/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "[{\"description\":\"my test description\"}, \"clarifications\": []]"
 ```
