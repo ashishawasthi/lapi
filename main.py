@@ -1,40 +1,15 @@
 from langchain.chat_models import ChatOpenAI # TODO replace with from langchain.chat_models import AzureChatOpenAI
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 from fastapi import FastAPI
-from pydantic import BaseModel
 from dotenv import load_dotenv
-import json
 import os
+import json
+
+from models import Clarification, Requirement, Epic, Story, Scenario
+from utils import text_from_file, json_string_from_file, extract_json_array
 
 load_dotenv() # load OPENAI_API_KEY from .env 
 app = FastAPI()
-
-class Clarification(BaseModel):
-    question: str
-    answer: str | None = None
-
-class Requirement(BaseModel):
-    # TODO add problem_id when state is stored in database
-    description: str
-    clarifications: list[Clarification]
-
-class Epic(BaseModel):
-    # TODO add requirement_id when state is stored in database
-    title: str
-    description: str
-    clarifications: list[Clarification]
-
-class Story(BaseModel):
-    # TODO add epic_id when state is stored in database
-    title: str
-    user: str
-    description: str
-    clarifications: list[Clarification]
-
-class Scenario(BaseModel):
-    # TODO add story_id when state is stored in database
-    title: str
-    description: str
 
 @app.get("/")
 async def root():
@@ -65,26 +40,8 @@ def epics(requirements: list[Requirement]):
     print("\n\nCalling OpenAI ChatCompletion API with messages: {messages}".format(messages=messages))
     response = chat(messages)
     print("\n\nResponse: {response}".format(response=response))
-
-    try:
-        epics_json = json.loads(response.content)
-        print("\n\n{epics_length} epics received from OpenAI ChatCompletion API".format(epics_length=len(epics_json)))
-    except ValueError as e:
-        print("\n\nError parsing epics JSON from OpenAI ChatCompletion API response: {e}".format(e=e))
-        epics_json = []
-        # split response.content by new lines. for each non-empty line, make it title of an epic
-        for line in response.content.splitlines():
-            if(line and line.strip() != ""):
-                epics_json.append({"title": line})
+    epics_str = extract_json_array(response.content)
+    print("\n\nEpics JSON:\n{epics_str}\n".format(epics_str=epics_str))
+    epics_json = json.loads(epics_str)
+    print("\n\n{epics_length} epics received from OpenAI ChatCompletion API".format(epics_length=len(epics_json)))
     return epics_json
-
-def json_string_from_file(file_path: str) -> str:
-    with open(os.path.join(file_path), "r") as f:
-        raw = f.read()
-    # remove extra whitespaces and newlines
-    return json.dumps(json.loads(raw)) 
-
-def text_from_file(file_path: str) -> str:
-    with open(os.path.join(file_path), "r") as f:
-        raw = f.read()
-    return raw.strip()

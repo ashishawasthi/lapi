@@ -28,7 +28,6 @@
     },
     {
         "title": "Integrate AI models into the rule engine system",
-        "user": "System Developer",
         "description":"Integrate AI models into the rule engine system to predict product-propensity, maximizing relevance of products to customers and bank's revenue expectations. The AI models should predict the best way to contact a customer, determining the optimal channels, timing, and content. The system should provide REST APIs to access the real-time AI models in rule engine. The system should also provide batch scoring option on Job-Server or AWS EMR, where scores across all customers need to be calculated at the same time.",
         "clarifications": [
             {"question": "List of AI models. Inputs and outputs of each AI model", "answer": ""},
@@ -38,7 +37,6 @@
     },
     {
         "title": "Measure campaign effectiveness using control groups",
-        "user": "Business user",
         "description": "Measure the effectiveness of campaigns using control groups. The system should provide a way to create control groups, assign them to campaigns and compare the results with the treatment groups. The system should generate reports with metrics such as conversion rate, revenue generated, and customer satisfaction.",
         "clarifications": [
             {"question": "List of metrics to be used for measuring campaign effectiveness.", "answer": ""},
@@ -48,7 +46,6 @@
     },
     {
         "title": "Handle high volumes and build fault-tolerant and resilient system",
-        "user": "System Developer",
         "description": "Handle high volume and velocity of events and actions without compromising performance or reliability. The event handling should use scalable platforms like AWS Lambda and AWS SQS to process events asynchronously and scale up or down based on the load. The system should also use caching and load balancing for APIs to improve performance and reduce latency.",
         "clarifications": [
             {"question": "Maximum expected volume of events and actions.", "answer": ""},
@@ -57,7 +54,6 @@
     },
     {
         "title": "Secure and compliant system",
-        "user": "Compliance Officer",
         "description":"Ensure that the system is secure and compliant with the bank's policies and regulations. The system should use CyberArk or AWS KMS to store keys to encrypt data at rest and in transit. The system should also use an APM like Splunk or AWS CloudTrail to monitor and audit system activity. The system should be regularly tested for vulnerabilities and compliance with the bank's policies and regulations.",
         "clarifications": [
             {"question": "List of compliance tests to be performed.", "answer": ""}
@@ -65,7 +61,6 @@
     },
     {
         "title": "System monitoring dashboard",
-        "user": "Site Reliability Engineer",
         "description": "Ensure that the system health is monitored and displayed on a live dashboard. There should be configurable thresholds for system metrics, to raise alarms and send notifications relevant SRE and development teams.",
         "clarifications": [
             {"question": "List of system metrics to be monitored.", "answer": ""},
