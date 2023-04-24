@@ -2,7 +2,6 @@ import json
 import unittest
 import os
 import sys
-#sys.path.append("..")
 from utils import json_string_from_file, text_from_file, extract_json_array, lines_to_json
 
 
