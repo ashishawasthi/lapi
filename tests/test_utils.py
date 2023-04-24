@@ -57,16 +57,12 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(text_from_file("test_text_with_newlines.txt"), expected_output)
 
     def test_extract_json_array(self):
-        raw = '{"name": "Alice", "age": 30, "friends": ["Bob", "Charlie"]}'
-        expected_output = '["Bob", "Charlie"]'
+        raw = 'The JSON array: [{"title": "t1"}, {"title": "t2"}]'
+        expected_output = json.loads('[{"title": "t1"}, {"title": "t2"}]')
         self.assertEqual(extract_json_array(raw), expected_output)
 
-        raw = '[1, 2, 3]'
-        expected_output = '[1, 2, 3]'
-        self.assertEqual(extract_json_array(raw), expected_output)
-
-        raw = 'not json data [1, 2, 3]'
-        expected_output = '[1, 2, 3]'
+        raw = '[{"title": "t1"}, {"title": "t2"}]'
+        expected_output = json.loads('[{"title": "t1"}, {"title": "t2"}]')
         self.assertEqual(extract_json_array(raw), expected_output)
 
     def test_lines_to_json(self):

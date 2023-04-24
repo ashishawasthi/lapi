@@ -3,23 +3,25 @@ import json
 # Read from json file. Remove newlines and extra whitespaces 
 def json_string_from_file(file_path: str) -> str:
     with open(file_path, "r") as f:
-        raw = f.read()
-    return json.dumps(json.loads(raw)) 
+        text = f.read()
+    return json.dumps(json.loads(text)) 
 
 # Read from text file. Remove extra whitespaces
 def text_from_file(file_path: str) -> str:
     with open(file_path, "r") as f:
-        raw = f.read()
-    return raw.strip()
+        text = f.read()
+    return text.strip()
 
 # Extract json fron text by using substring between first "[" and last "]"
-def extract_json_array(raw) -> str:
-    return raw[raw.find("[") : raw.rfind("]") + 1]
+def extract_json_array(text):
+    json_array = text[text.find("[") : text.rfind("]") + 1]
+    #print("\n\nExtracted JSON: \n{json_array}".format(json_array=json_array))
+    return json.loads(json_array)
 
 # Convert text lines to json. Remove empty lines
-def lines_to_json(raw, item_name="title") -> str:
+def lines_to_json(text, item_name="title") -> str:
     json = []
-    for line in raw.splitlines():
+    for line in text.splitlines():
         if(line and line.strip() != ""):
             json.append({item_name: line})
     return json

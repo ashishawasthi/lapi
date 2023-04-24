@@ -20,5 +20,5 @@ python -m unittest .\tests\test_utils.py
 ## API
 ### POST /epics/
 ```bash
-curl -X POST "http://localhost:8000/epics/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "[{\"description\":\"my test description\"}, \"clarifications\": []]"
+curl -X POST "http://localhost:8000/epics/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "[{\"description\":\"my epic description\"}, \"clarifications\": []]"
 ```
