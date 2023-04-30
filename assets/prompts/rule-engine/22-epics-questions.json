@@ -60,6 +60,15 @@
         ]
     },
     {
+        "title": "Marketing Metrics Dashboard",
+        "description": "Develop a dashboard to track the success of the marketing platform. Measure the number of messages sent, opened, clicked, converted, and opted-out. Implement a control group to measure the impact of the platform.",
+        "clarifications": [
+            {"question": "What marketing metrics should be tracked on the dashboard?"},
+            {"question": "How often should the dashboard data be updated?"},
+            {"question": "What kind of visualizations and filters should be available on the dashboard?"}
+        ]
+    },
+    {
         "title": "System monitoring dashboard",
         "description": "Ensure that the system health is monitored and displayed on a live dashboard. There should be configurable thresholds for system metrics, to raise alarms and send notifications relevant SRE and development teams.",
         "clarifications": [
