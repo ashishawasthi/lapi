@@ -3,3 +3,4 @@ __pycache__
 .env
 test_*.txt
 test_*.json
+.DS_Store

@@ -1,3 +1,4 @@
+from typing import List
 from langchain.chat_models import ChatOpenAI # TODO replace with from langchain.chat_models import AzureChatOpenAI
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 from fastapi import FastAPI
@@ -27,7 +28,7 @@ def requirements(problem: str):
 
     # Load the prompt parts from files
     system1 = text_from_file(os.path.join("assets", "prompts", "1-system.txt"))
-    problem11 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "11-problem.json"))
+    problem11 = text_from_file(os.path.join("assets", "prompts", project_dir, "11-problem.txt"))
     requirements12 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "12-requirements-questions.json"))
     chat = ChatOpenAI(temperature=0, max_tokens=2048, request_timeout=140, max_retries=2)
     messages = [
@@ -43,7 +44,7 @@ def requirements(problem: str):
 
 # Generate epics for the given requirements
 @app.post("/epics") # TODO change to PUT when state is stored in database
-def epics(requirements: list[Requirement]):
+def epics(requirements: List[Requirement]):
 
     project_dir = "rule-engine" # TODO find closest project to the given requirements
 
@@ -87,7 +88,7 @@ def stories(epic: Epic):
 
 # Generate test scenarios for the given user story
 @app.post("/scenarios") # TODO change to PUT when state is stored in database
-def scenarios(stories: list[Story]):
+def scenarios(stories: List[Story]):
 
     project_dir = "rule-engine" # TODO find closest project to the given requirements
 
