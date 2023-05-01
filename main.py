@@ -35,7 +35,7 @@ def requirements(problem: str):
         SystemMessage(content=system1),
         HumanMessage(content=problem11),
         AIMessage(content=requirements12),
-        HumanMessage(content="Problem Statement:\n{problem}".format(problem=problem)),
+        HumanMessage(content=problem)
     ]
     print("\n\nCalling OpenAI ChatCompletion API with messages: {messages}".format(messages=messages))
     response = chat(messages)
