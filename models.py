@@ -22,6 +22,7 @@ class Story(BaseModel):
     title: str
     user: str
     description: str
+    acceptanceCriteria: List[str]
     clarifications: List[Clarification]
 
 class Scenario(BaseModel):

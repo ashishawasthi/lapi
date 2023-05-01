@@ -3,7 +3,7 @@
     "title": "Create customer segmentation based on product-propensities",
     "user": "Data Scientist",
     "description": "Develop an AI model to segment customers based on their product-propensities. The model should use customer data such as demographics, behavior, recent usage of services, and transaction history. The model should be trained on a representative sample of customers and validated on a hold-out set. The model should be deployed on the Analytical-Cluster and integrated with the Marketing Rule Engine to create targeted messages.",
-    "acceptance criteria": [
+    "acceptanceCriteria": [
       "The AI model should achieve an accuracy of at least 80% on the hold-out set.",
       "The model should be deployed on the Analytical-Cluster.",
       "The model should be integrated with the Marketing Rule Engine."
@@ -23,7 +23,7 @@
     "title": "Create marketing rules for targeted messages based on customer segmentation",
     "user": "Business user",
     "description": "Create marketing rules based on the customer segmentation developed by the Data Scientist. The rules should allow me to filter customers based on their product-propensities and create targeted messages via inbound and outbound channels. The rules should also comply with regulatory requirements and prevent spamming customers. The system should provide a user-friendly interface to create, edit, and delete rules.",
-    "acceptance criteria": [
+    "acceptanceCriteria": [
       "The marketing rules should be based on the customer segmentation developed by the Data Scientist.",
       "The rules should comply with regulatory requirements.",
       "The system should provide a user-friendly interface to create, edit, and delete rules."

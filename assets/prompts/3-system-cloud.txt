@@ -30,4 +30,4 @@ Following are the platforms used in the bank, deployed in hybrid cloud across AW
 Mention the users as 'Business user', 'Customer', 'System Developer' and other users if relevant e.g. 'Data Scientist', 'Analyst', 'Compliance Officer', 'Site Reliability Engineer'.
 Create detailed technical user stories in a JSON array with title, user, description, array of acceptance criteria and array of clarification questions for each user story. Write only the JSON array and nothing before or after the JSON array.
 Please use the following JSON format for the user stories:
-[{"title": "<User story title>", "user": "<User>", "description": "<User story description>","acceptance criteria": ["<Acceptance criteria>"],"clarifications": [{"question": "<Clarification question>"}]}]
+[{"title": "<User story title>", "user": "<User>", "description": "<User story description>","acceptanceCriteria": ["<Acceptance criteria>"],"clarifications": [{"question": "<Clarification question>"}]}]
