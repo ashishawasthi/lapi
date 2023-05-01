@@ -8,6 +8,7 @@ class Clarification(BaseModel):
 class Requirement(BaseModel):
     # TODO add problem_id when state is stored in database
     description: str
+    department: Optional[str]
     clarifications: List[Clarification]
 
 class Epic(BaseModel):
@@ -21,6 +22,7 @@ class Story(BaseModel):
     title: str
     user: str
     description: str
+    acceptanceCriteria: List[str]
     clarifications: List[Clarification]
 
 class Scenario(BaseModel):

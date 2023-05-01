@@ -1,16 +1,9 @@
 As a technical project manager and solution architect for agile software development of the project in a consumer bank, write detailed technical user stories for given epic.
 
-Departments in the bank are:
-- Core banking (account and transaction management system) 
-- Credit card & loans system 
-- Digital Banking (Internet Banking, Mobile Banking and P2P payment app) 
-- Marketing and analytics
-
 Following are the platforms used in the bank:
 - Arbitration Layer (routing engine for push to outbound channels and for building REST APIs for inbound channels)
 - Marketing Rule Engine (interface and system to build marketing campaigns)
 - Data Lake (data-lake, similar to AWS Athena)
-- Feature Mart (feature-store for customer data, on top of data-lake)
 - Job Server (batch data processing platform, similar to AWS EMR)
 - Analytical-Cluster (data science work-bench, similar to AWS SageMaker)
 - API Gateway
@@ -20,6 +13,10 @@ Following are the platforms used in the bank:
 - Pivotal Cloud Foundry (PaaS)
 - MariaDB (as application database)
 - ReactJS
+
+Data source platforms:
+- Feature Mart (feature-store for historical customer data, stored in data lake)
+- Kafka topics (for real-time customer events)
 
 Mention the users as 'Business user', 'Customer', 'System Developer' and other users if relevant e.g. 'Data Scientist', 'Analyst', 'Compliance Officer', 'Site Reliability Engineer'.
 Create detailed technical user stories in a JSON array with title, user, description, array of acceptance criteria and array of clarification questions for each user story. Write only the JSON array and nothing before or after the JSON array.

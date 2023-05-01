@@ -1,0 +1,22 @@
+{
+    "description": "A self-service marketing rule-engine for business users to develop targeted marketing rules using AI model recommendations and customer data, including product-propensities, demographics, behavior, service usage and transaction history. The platform ensures minimal spam and delivers messages via inbound and outbound channels.",
+    "department": "Marketing and analytics",
+    "clarifications": [
+        {
+            "question": "Which inbound and outbound channels should be supported by the platform?",
+            "answer": "Outbound channels: email, push notifications and SMS. Inbound channels: Internet Banking, Mobile Banking and P2P Payment"
+        },
+        {
+            "question": "How should the platform ensure minimal spam and comply with marketing regulations?",
+            "answer": "The platform should implement customer opt-out preferences and keep the frequency of messages within the limits of marketing regulations."
+        },
+        {
+            "question": "What metrics should be used to determine the success of the platform?",
+            "answer": "The platform should track the number of messages sent, the number of messages opened, clicked, converted and opted-out. There should be a control group to measure the impact of the platform. A dashboard should be provided to track these metrics."
+        },
+        {
+            "question": "What are the decisions, for which AI models should be used?",
+            "answer": "The AI models should be used to determine the best contact channels, timing, and content. The AI models should also be used to predict product propensities and optimize relevance."
+        }
+    ]
+}
