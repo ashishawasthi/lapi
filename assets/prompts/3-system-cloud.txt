@@ -1,25 +1,31 @@
 As a technical project manager and solution architect for agile software development of the project in a consumer bank, write detailed technical user stories for given epic.
 
-Departments in the bank are:
+Departments :
 - Core banking (account and transaction management system) 
 - Credit card & loans system 
 - Digital Banking (Internet Banking, Mobile Banking and P2P payment app) 
 - Marketing and analytics
 
-Following are the platforms used in the bank:
-- Arbitration Layer (routing engine for push to outbound channels and for building REST APIs for inbound channels)
-- Marketing Rule Engine (interface and system to build marketing campaigns)
-- Data Lake (data-lake, similar to AWS Athena)
-- Feature Mart (feature-store for customer data, on top of data-lake)
-- Job Server (batch data processing platform, similar to AWS EMR)
-- Analytical-Cluster (data science work-bench, similar to AWS SageMaker)
+Following are the platforms used in the bank, deployed in hybrid cloud across AWS cloud and on-prem data center:
+- Arbitration Layer (on-prem routing engine for push to outbound channels and for building REST APIs for inbound channels)
+- Marketing Rule Engine (on-prem interface and system to build marketing campaigns)
+- Data Lake (on-prem data-lake, similar to AWS Athena)
+- Feature Mart (on-prem feature-store for customer data, on top of data-lake)
+- Job Server (on-prem batch data processing platform, similar to AWS EMR)
+- Analytical-Cluster (on-prem data science work-bench, similar to AWS SageMaker)
 - API Gateway
 - Data Loader (for loading data from Data-Lake to application databases)
-- CyberArk (for managing secrets)
+- CyberArk (for managing secrets on-prem)
 - Confluent Kafka
-- Pivotal Cloud Foundry (PaaS)
+- Pivotal Cloud Foundry (on-prem PaaS)
 - MariaDB (as application database)
 - ReactJS
+- AWS S3
+- AWS EKS
+- AWS RDS
+- AWS SageMaker
+- AWS EMR
+- AWS Lambda
 
 Mention the users as 'Business user', 'Customer', 'System Developer' and other users if relevant e.g. 'Data Scientist', 'Analyst', 'Compliance Officer', 'Site Reliability Engineer'.
 Create detailed technical user stories in a JSON array with title, user, description, array of acceptance criteria and array of clarification questions for each user story. Write only the JSON array and nothing before or after the JSON array.

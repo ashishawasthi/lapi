@@ -1,0 +1,102 @@
+[
+    {
+      "title": "Create customer segmentation based on product-propensities",
+      "user": "Data Scientist",
+      "description": "Develop an AI model to segment customers based on their product-propensities. The model should use customer data such as demographics, behavior, recent usage of services, and transaction history. The model should be trained on a representative sample of customers and validated on a hold-out set. The model should be deployed on the Analytical-Cluster and integrated with the Marketing Rule Engine to create targeted messages.",
+      "acceptance criteria": [
+        "The AI model should achieve an accuracy of at least 80% on the hold-out set.",
+        "The model should be deployed on the Analytical-Cluster.",
+        "The model should be integrated with the Marketing Rule Engine."
+      ],
+      "clarifications": [
+        {
+          "question": "What is the expected size of the representative sample?",
+          "answer": "The representative sample should have at least 10,000 customers."
+        },
+        {
+          "question": "What is the expected time-frame for model development?",
+          "answer": "The model development should be completed within 2 months."
+        }
+      ]
+    },
+    {
+      "title": "Create marketing rules for targeted messages based on customer segmentation",
+      "user": "Business user",
+      "description": "Create marketing rules based on the customer segmentation developed by the Data Scientist. The rules should allow me to filter customers based on their product-propensities and create targeted messages via inbound and outbound channels. The rules should also comply with regulatory requirements and prevent spamming customers. The system should provide a user-friendly interface to create, edit, and delete rules.",
+      "acceptance criteria": [
+        "The marketing rules should be based on the customer segmentation developed by the Data Scientist.",
+        "The rules should comply with regulatory requirements.",
+        "The system should provide a user-friendly interface to create, edit, and delete rules."
+      ],
+      "clarifications": [
+        {
+          "question": "What are the regulatory requirements to be complied with?",
+          "answer": "The rules should comply with GDPR and other relevant regulations."
+        },
+        {
+          "question": "What are the inbound and outbound channels to be used?",
+          "answer": "The inbound channels are email, SMS, and push notifications. The outbound channels are website, mobile app, and call center."
+        }
+      ]
+    },
+    {
+      "title": "Integrate Marketing Rule Engine with Arbitration Layer",
+      "user": "System Developer",
+      "description": "Integrate the Marketing Rule Engine with the Arbitration Layer to deliver targeted messages via inbound and outbound channels. The integration should allow the Arbitration Layer to route messages to the appropriate outbound channels and build REST APIs for inbound channels. The integration should also ensure that the messages comply with regulatory requirements and prevent spamming customers.",
+      "acceptance criteria": [
+        "The Marketing Rule Engine should be integrated with the Arbitration Layer.",
+        "The integration should allow the Arbitration Layer to route messages to the appropriate outbound channels and build REST APIs for inbound channels.",
+        "The integration should ensure that the messages comply with regulatory requirements and prevent spamming customers."
+      ],
+      "clarifications": [
+        {
+          "question": "What are the outbound channels to be used?",
+          "answer": "The outbound channels are website, mobile app, and call center."
+        },
+        {
+          "question": "What are the regulatory requirements to be complied with?",
+          "answer": "The messages should comply with GDPR and other relevant regulations."
+        }
+      ]
+    },
+    {
+      "title": "Load customer data from Data Lake to Feature Mart",
+      "user": "System Developer",
+      "description": "Load customer data from the Data Lake to the Feature Mart for use in the AI model and marketing rules. The data should be transformed and cleaned to ensure consistency and accuracy. The data should also be encrypted and secured using CyberArk.",
+      "acceptance criteria": [
+        "The customer data should be loaded from the Data Lake to the Feature Mart.",
+        "The data should be transformed and cleaned to ensure consistency and accuracy.",
+        "The data should be encrypted and secured using CyberArk."
+      ],
+      "clarifications": [
+        {
+          "question": "What is the expected size of the customer data?",
+          "answer": "The customer data should have at least 1 million records."
+        },
+        {
+          "question": "What are the data cleaning and transformation requirements?",
+          "answer": "The data should be standardized, deduplicated, and missing values should be imputed."
+        }
+      ]
+    },
+    {
+      "title": "Deploy ReactJS application on Pivotal Cloud Foundry",
+      "user": "System Developer",
+      "description": "Deploy the ReactJS application on Pivotal Cloud Foundry for use by Business users to create, edit, and delete marketing rules. The application should be scalable, secure, and highly available. The application should also be integrated with the API Gateway for authentication and authorization.",
+      "acceptance criteria": [
+        "The ReactJS application should be deployed on Pivotal Cloud Foundry.",
+        "The application should be scalable, secure, and highly available.",
+        "The application should be integrated with the API Gateway for authentication and authorization."
+      ],
+      "clarifications": [
+        {
+          "question": "What are the authentication and authorization requirements?",
+          "answer": "The application should use OAuth2 for authentication and authorization."
+        },
+        {
+          "question": "What are the expected traffic and usage patterns?",
+          "answer": "The application should be able to handle at least 1000 concurrent users and 10,000 requests per minute."
+        }
+      ]
+    }
+  ]

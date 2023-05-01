@@ -1,0 +1,17 @@
+[
+    {
+        "description": "The system should allow business users to create and manage marketing rules for targeted campaigns. The rules should be based on customer data, including demographics, behavior, service usage, and transaction history. The system should also provide AI model recommendations for product propensities and optimize relevance for inbound and outbound channels.",
+        "department": "Marketing and analytics",
+        "clarifications": [
+            {
+                "question": "What are the inbound and outbound channels that the system should support?"
+            },
+            {
+                "question": "How should the system provide AI model recommendations for product propensities?"
+            },
+            {
+                "question": "What are the metrics that the system should use to measure the success of the campaigns?"
+            }
+        ]
+    }
+]

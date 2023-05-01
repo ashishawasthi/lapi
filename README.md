@@ -87,7 +87,7 @@ content-type: application/json
 ```json
 [
   {
-    "title": "Marketing rules for targeted messages",
+    "title": "Marketing rules interface for targeted messages",
     "description": "Rules based on AI model recommendations and customer data to deliver targeted messages via inbound and outbound channels. The rules should allow me to filter customers based on product-propensities, demographics, behavior, recent usage of services, and transaction history. The rules should also comply with regulatory requirements and prevent spamming customers. The system should provide a user-friendly interface to create, edit, and delete rules.",
     "clarifications": [
       {

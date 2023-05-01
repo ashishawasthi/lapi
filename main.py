@@ -4,6 +4,7 @@ from langchain.schema import AIMessage, HumanMessage, SystemMessage
 from fastapi import FastAPI
 from dotenv import load_dotenv
 import os
+import json
 
 from models import Clarification, Requirement, Epic, Story, Scenario
 from utils import text_from_file, json_string_from_file, extract_json_array
@@ -14,27 +15,27 @@ app = FastAPI()
 @app.get("/")
 async def root():
     return {"usage": """
-    /requirements with the problem-statement text in the post body.
-    /epics with the requirements JSON in the post body.
+    /requirement with the problem-statement text in the post body.
+    /epics with the requirement JSON in the post body.
     /user-stories with the epics JSON in the post body.
     /test-scenarios with the user-stories JSON in the post body.
     """}
 
-# Generate requirements for the given problem statement
-@app.post("/requirements") # TODO change to PUT when state is stored in database
-def requirements(problem: str):
+# Generate detailed requirement for the given problem statement
+@app.post("/requirement") # TODO change to PUT when state is stored in database
+def requirement(problem: str):
 
-    project_dir = "rule-engine" # TODO find closest project to the given requirements
+    project_dir = "rule-engine" # TODO find closest project to the given requirement
 
     # Load the prompt parts from files
     system1 = text_from_file(os.path.join("assets", "prompts", "1-system.txt"))
     problem11 = text_from_file(os.path.join("assets", "prompts", project_dir, "11-problem.txt"))
-    requirements12 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "12-requirements-questions.json"))
+    requirement12 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "12-requirement-questions.json"))
     chat = ChatOpenAI(temperature=0, max_tokens=2048, request_timeout=140, max_retries=2)
     messages = [
         SystemMessage(content=system1),
         HumanMessage(content=problem11),
-        AIMessage(content=requirements12),
+        AIMessage(content=requirement12),
         HumanMessage(content=problem)
     ]
     print("\n\nCalling OpenAI ChatCompletion API with messages: {messages}".format(messages=messages))
@@ -42,22 +43,23 @@ def requirements(problem: str):
     print("\n\nResponse: \n{response}".format(response=response))
     return extract_json_array(response.content)
 
-# Generate epics for the given requirements
+# Generate epics for the given requirement
 @app.post("/epics") # TODO change to PUT when state is stored in database
-def epics(requirements: List[Requirement]):
+def epics(requirement: Requirement):
 
-    project_dir = "rule-engine" # TODO find closest project to the given requirements
+    project_dir = "rule-engine" # TODO find closest project to the given requirement
 
     # Load the prompt parts from files
     system2 = text_from_file(os.path.join("assets", "prompts", "2-system.txt"))
-    requirement21 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "21-requirements-answers.json"))
+    requirement21 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "21-requirement-answers.json"))
     epics22 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "22-epics-questions.json"))
     chat = ChatOpenAI(temperature=0, max_tokens=2048, request_timeout=140, max_retries=2)
+
     messages = [
         SystemMessage(content=system2),
         HumanMessage(content=requirement21),
         AIMessage(content=epics22),
-        HumanMessage(content="Business Requirements:\n{requirements}".format(requirements=requirements)),
+        HumanMessage(content=requirement.json())
     ]
     print("\n\nCalling OpenAI ChatCompletion API with messages: {messages}".format(messages=messages))
     response = chat(messages)
@@ -67,19 +69,19 @@ def epics(requirements: List[Requirement]):
 # Generate user stories for the given epic
 @app.post("/stories") # TODO change to PUT when state is stored in database
 def stories(epic: Epic):
-
-    project_dir = "rule-engine" # TODO find closest project to the given requirements
+    #TODO try including requirement details forgiving context
+    project_dir = "rule-engine" # TODO find closest project to the given requirement
 
     # Load the prompt parts from files
-    system3 = text_from_file(os.path.join("assets", "prompts", "3-system.txt"))
-    #epic31 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "21-requirements-answers.json"))
-    #stories32 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "22-epics-questions.json"))
+    system3 = text_from_file(os.path.join("assets", "prompts", "3-system-marketing-analytics.txt"))
+    epic31 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "31-epics-answers.json"))
+    stories32 = json_string_from_file(os.path.join("assets", "prompts", project_dir, "32-stories-questions.json"))
     chat = ChatOpenAI(temperature=0, max_tokens=2048, request_timeout=140, max_retries=2)
     messages = [
         SystemMessage(content=system3),
-        #HumanMessage(content=epic31),
-        #AIMessage(content=stories32),
-        HumanMessage(content="Epic:\n{epic}".format(epic=epic)),
+        HumanMessage(content=epic31),
+        AIMessage(content=stories32),
+        HumanMessage(content=epic.json())
     ]
     print("\n\nCalling OpenAI ChatCompletion API with messages: \n{messages}".format(messages=messages))
     response = chat(messages)
@@ -90,7 +92,7 @@ def stories(epic: Epic):
 @app.post("/scenarios") # TODO change to PUT when state is stored in database
 def scenarios(stories: List[Story]):
 
-    project_dir = "rule-engine" # TODO find closest project to the given requirements
+    project_dir = "rule-engine" # TODO find closest project to the given requirement
 
     # Load the prompt parts from files
     system4 = text_from_file(os.path.join("assets", "prompts", "4-system.txt"))

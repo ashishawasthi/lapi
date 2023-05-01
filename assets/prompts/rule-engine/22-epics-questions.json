@@ -1,11 +1,11 @@
 [
     {
-        "title": "Marketing rules for targeted messages",
+        "title": "Marketing rules interface for targeted messages",
         "description": "Create marketing rules based on AI model recommendations and customer data to deliver targeted messages via inbound and outbound channels. The rules should allow me to filter customers based on product-propensities, demographics, behavior, recent usage of services, and transaction history. The rules should also comply with regulatory requirements and prevent spamming customers. The system should provide a user-friendly interface to create, edit, and delete rules.",
         "clarifications": [
             {"question": "List of events to be available in the system."},
-            {"question": "Examples of complex conditions to be supported in rules. e.g. timeout between start and end events, event sequence."},
-            {"question": "List of spamming prevention rules."}
+            {"question": "Examples of complex conditions to be supported in rules."},
+            {"question": "List of spam prevention rules."}
         ]
     },
     {
