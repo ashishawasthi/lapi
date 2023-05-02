@@ -1,17 +1,17 @@
-[
-    {
-        "description": "The system should allow business users to create and manage marketing rules for targeted campaigns. The rules should be based on customer data, including demographics, behavior, service usage, and transaction history. The system should also provide AI model recommendations for product propensities and optimize relevance for inbound and outbound channels.",
-        "department": "Marketing and analytics",
-        "clarifications": [
-            {
-                "question": "What are the inbound and outbound channels that the system should support?"
-            },
-            {
-                "question": "How should the system provide AI model recommendations for product propensities?"
-            },
-            {
-                "question": "What are the metrics that the system should use to measure the success of the campaigns?"
-            }
-        ]
-    }
-]
+{
+    "description": "A self-service marketing rule-engine for business users to develop targeted marketing rules using AI model recommendations and customer data, including product-propensities, demographics, behavior, service usage and transaction history. The platform ensures minimal spam and delivers messages via inbound and outbound channels.",
+    "clarifications": [
+        {
+            "question": "Which inbound and outbound channels should be supported by the platform?"
+        },
+        {
+            "question": "How should the platform ensure minimal spam and comply with marketing regulations?"
+        },
+        {
+            "question": "What metrics should be used to determine the success of the platform?"
+        },
+        {
+            "question": "What are the decisions, for which AI models should be used?"
+        }
+    ]
+}
