@@ -25,12 +25,7 @@ curl -X 'POST' \
   'http://localhost:8000/epics' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -d '[
-    {
-        "description": "A self-service marketing rule-engine for business users to develop targeted marketing rules using AI model recommendations to send only relevant messages to customers. The platform ensures minimal spam and delivers messages via inbound and outbound channels.",
-        "clarifications": []
-    }
-]'
+  -d '{"description": "A self-service marketing rule-engine for business users to develop targeted marketing rules using AI model recommendations to send only relevant messages to customers. The platform ensures minimal spam and delivers messages via inbound and outbound channels.", "clarifications": []}'
 ```
 
 #### Powershell Example
@@ -38,12 +33,7 @@ curl -X 'POST' \
 Invoke-RestMethod -Method POST `
   -Uri 'http://localhost:8000/epics' `
   -Headers @{'accept'='application/json'; 'Content-Type'='application/json'} `
-  -Body '[
-    {
-        "description": "A self-service marketing rule-engine for business users to develop targeted marketing rules using AI model recommendations to send only relevant messages to customers. The platform ensures minimal spam and delivers messages via inbound and outbound channels.",
-        "clarifications": []
-    }
-]' 
+  -Body '{"description": "A self-service marketing rule-engine for business users to develop targeted marketing rules using AI model recommendations to send only relevant messages to customers. The platform ensures minimal spam and delivers messages via inbound and outbound channels.", "clarifications": []}' 
 ```
 
 #### Python Example
