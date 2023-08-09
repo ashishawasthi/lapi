@@ -3,3 +3,4 @@ fastapi
 langchain
 python-dotenv
 openai
+google-cloud-aiplatform >= 1.25.0
