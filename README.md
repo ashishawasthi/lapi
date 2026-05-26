@@ -1,4 +1,4 @@
-# lapi
+# Template for FastAPI ove Langchain workflow
 Langchain REST API, with FastAPI
 
 ## Install
